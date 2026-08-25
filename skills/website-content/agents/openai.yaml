@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Content"
+  short_description: "Write useful, purpose-aware website content"
+  default_prompt: "Use $website-content to classify this page's job and draft the content it needs."
