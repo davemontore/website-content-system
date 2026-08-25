@@ -1,27 +1,110 @@
 # Website Content System
 
-A purpose-aware writing skill for websites.
+A purpose-aware Agent Skill for writing useful website content without turning every page into a sales page.
 
-Most website-writing systems assume every page should sell. This one starts by asking what the page must help a visitor do. It then applies the right rules for informational content, orientation, instructions, interface language, trust-building, exploration, persuasion, or conversion.
+## Write for the page's actual job
 
-The project is designed as a portable Agent Skill for Codex and other tools that support `SKILL.md` packages.
+Ask an AI to “write website copy” and it will often reach for the same landing-page language, even when the website is an archive, guide, museum, public resource, or software interface.
 
-## What it changes
+Website Content System starts somewhere more useful: what should this page help the visitor understand or do?
 
-The skill routes work through this sequence:
+It classifies the page before choosing a writing method:
 
-`page job -> visitor questions -> information hierarchy -> content type -> draft -> usefulness and accuracy audit`
+| Page job | What the visitor needs |
+|---|---|
+| Inform | An accurate answer or explanation |
+| Orient | A clear sense of where they are and where to go |
+| Teach | Enough understanding to learn or complete a process |
+| Enable | Clear interface language for taking an action or recovering from a problem |
+| Establish trust | Specific evidence for deciding whether something is credible |
+| Explore | Useful paths through related material |
+| Persuade | Evidence and reasoning for reconsidering a view |
+| Convert | The information needed to take a specific, voluntary action |
 
-Its default priorities are:
+Hybrid pages get one primary job and one secondary job. When those goals conflict, the primary job wins.
 
-1. Truth
-2. Understanding and task completion
-3. Usefulness
-4. Appropriate personality
-5. Discoverability
-6. Persuasion, only when the page actually needs it
+## The difference in practice
 
-## Project structure
+For an informational page, the skill will not manufacture a hero such as:
+
+> Discover local history like never before
+
+It will identify the visitor's question, put the clearest answer first, and organize the evidence in the order needed to understand it.
+
+For a service or product page, it can still use persuasive techniques. Those techniques activate only when persuasion or conversion is part of the brief, and every claim still needs evidence.
+
+The workflow is:
+
+```text
+page job
+  -> visitor questions
+  -> information hierarchy
+  -> appropriate content types
+  -> draft
+  -> usefulness and accuracy audit
+```
+
+## Install for Codex
+
+Clone the repository:
+
+```bash
+git clone https://github.com/davemontore/website-content-system.git
+```
+
+Copy `skills/website-content` into your Codex skills directory.
+
+macOS or Linux:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R website-content-system/skills/website-content ~/.codex/skills/
+```
+
+Windows PowerShell:
+
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
+Copy-Item -Recurse "website-content-system\skills\website-content" "$env:USERPROFILE\.codex\skills\website-content"
+```
+
+The portable skill entrypoint is [skills/website-content/SKILL.md](skills/website-content/SKILL.md).
+
+## Use the skill
+
+Invoke it directly with `$website-content`:
+
+```text
+Use $website-content to plan an informational page about the history of a railway station.
+```
+
+```text
+Use $website-content to audit this onboarding flow for unclear labels and dead ends.
+```
+
+```text
+Use $website-content to rewrite this service page. Establish trust first and treat conversion as the secondary job.
+```
+
+```text
+Use $website-content to draft the title and description for this article after reviewing its content.
+```
+
+The skill supports planning, drafting, editing, and auditing. It asks only for missing information that would materially change the result. Unknown evidence remains an open question rather than becoming an invented claim, statistic, quote, credential, or deadline.
+
+## What always applies
+
+Whatever the page job, the skill keeps the same priority order:
+
+1. Tell the truth and represent evidence accurately.
+2. Help the visitor understand or complete the task.
+3. Include information that serves the page's job.
+4. Use personality where the situation can carry it.
+5. Improve discoverability without weakening the first four priorities.
+
+It also distinguishes between page content, navigation, interface language, reference material, instructions, editorial writing, and marketing copy. They may appear on the same website, but they should not all sound like advertising.
+
+## How the skill is organized
 
 ```text
 skills/website-content/
@@ -37,35 +120,14 @@ skills/website-content/
     `-- ux-and-instructions.md
 ```
 
-The entrypoint stays compact. It loads only the reference files relevant to the current page.
+The entrypoint contains the shared workflow and routes the agent to only the references needed for the current task.
 
-## Use locally
+## Source principles, not copied repositories
 
-Copy `skills/website-content` into the skills directory used by your agent. For Codex, the usual destination is:
+This project is an original synthesis informed by open-source UX writing, plain-language editing, SEO content, and conversion-copy projects. It does not bundle upstream swipe files, templates, brand voices, examples, or blocklists.
 
-```text
-~/.codex/skills/website-content
-```
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) records each source, its license, the principle it informed, and the boundary used during adaptation. A CC BY-NC source reviewed during the original survey is credited there but was not adapted into this project.
 
-Then invoke it directly with `$website-content`, or ask for website content work in ordinary language.
+## License
 
-Example requests:
-
-- Use `$website-content` to plan an informational page about Hua Hin's railway history.
-- Audit this onboarding flow for unclear labels and dead ends.
-- Rewrite this service page, but keep trust ahead of conversion pressure.
-- Draft metadata for this article after the page content is settled.
-
-## Design choices
-
-- Page purpose controls the writing method.
-- Content, navigation, interface language, reference material, instructions, editorial writing, and marketing copy are distinct surfaces.
-- Claims need evidence. Missing proof becomes a question or a clearly marked placeholder, never an invented fact.
-- Search optimization cannot overrule accuracy, clarity, or the page's real job.
-- Conversion frameworks are optional tools, not universal templates.
-
-## Sources and license
-
-This is an original synthesis informed by several open-source writing projects. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source links, licenses, and the boundaries used during adaptation.
-
-The Website Content System is released under the MIT License. See [LICENSE](LICENSE).
+Website Content System is available under the [MIT License](LICENSE).
