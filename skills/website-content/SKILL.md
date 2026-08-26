@@ -44,6 +44,8 @@ Then read only the references needed for the current work:
 
 For edits, preserve accurate material, established terminology, and genuine voice. Change structure when the current order prevents understanding or task completion, and say what moved.
 
+When explaining or auditing a writing problem, do not stop at a bad example or an abstract recommendation. Show a concrete improved alternative grounded in the available facts, or use clearly marked placeholders when the necessary evidence is missing.
+
 ## Deliver useful work
 
 Match the output to the request. A full page may need a content brief, hierarchy, draft, and open evidence questions. A button label may need only the label and one sentence of context. An audit should lead with prioritized findings rather than burying them under a rewrite.

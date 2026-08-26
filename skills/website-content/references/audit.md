@@ -63,4 +63,6 @@ Lead with the highest-impact findings. For each finding, include:
 - a concrete fix or rewritten example
 - an evidence question when the correct fix depends on missing facts
 
+Never use a weak example only to demonstrate what not to do. Pair criticism with a better version so the reader can see how the recommendation changes the result.
+
 Separate blocking accuracy or task failures from stylistic improvements. When the user asked only for an audit, do not silently rewrite the whole page.
