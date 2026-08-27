@@ -42,6 +42,10 @@ Then read only the references needed for the current work:
 4. Draft from verified material. Put the answer or next action before background detail.
 5. Apply the routed guidance, then run the audit in `references/audit.md` before delivery.
 
+Do not use em dashes. Rewrite the sentence or use a period, comma, colon, or semicolon. Treat
+any remaining em dash in authored content as a failed proofread. Preserve the character only when
+code must recognize or test external input, or when an exact quotation requires it.
+
 For edits, preserve accurate material, established terminology, and genuine voice. Change structure when the current order prevents understanding or task completion, and say what moved.
 
 When explaining or auditing a writing problem, do not stop at a bad example or an abstract recommendation. Show a concrete improved alternative grounded in the available facts, or use clearly marked placeholders when the necessary evidence is missing.
